@@ -25,12 +25,4 @@ jobs:
       - name: Push image
         run: faas-cli push -f stack.yaml
 
-      - name: Login to OpenFaaS
-        run: |
-          echo "${{ secrets.OPENFAAS_PASSWORD }}" | faas-cli login \
-          --gateway ${{ secrets.OPENFAAS_URL }} \
-          --username ${{ secrets.OPENFAAS_USERNAME }} \
-          --password-stdin
-
-      - name: Deploy function
-        run: faas-cli deploy -f stack.yaml --gateway ${{ secrets.OPENFAAS_URL }}
+      
